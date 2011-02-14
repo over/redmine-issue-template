@@ -1,4 +1,5 @@
 class IssueTemplatesController < ApplicationController
+  unloadable
   before_filter :find_issue_template, :except => [:index, :new, :create]
   before_filter :require_admin
 
