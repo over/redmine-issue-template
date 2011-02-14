@@ -4,7 +4,7 @@
   <select id="template_selector">
     <%= issue_templates_options %>
   </select>
-  <input type="button" value="Вставить" onclick="insertTemplate('template_selector', 'issue_description')"/>
+  <input type="button" value="<%= l(:label_issue_template_insert_button) %>" onclick="insertTemplate('template_selector', 'issue_description')"/>
 </div>
 <% end %>
 
