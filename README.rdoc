@@ -11,6 +11,10 @@ Allows to manage templates of issues, and adding them to a new issue body.
 # Setup the database using the migrations. +rake db:migrate_plugins RAILS_ENV=production+
 # Add a new *issue template* by clicking at *issue templates* menu under Administration Area
 
+==Roadmap
+
+* Each issue template need to be scoped by project
+
 ==Authors
 
 * 'undev.ru' http://undev.ru'
