@@ -1,6 +1,6 @@
 class IssueTemplatesController < ApplicationController
   unloadable
-  before_filter :find_issue_template, :except => [:index, :new, :create]
+  before_filter :find_issue_template, :except => [:index, :new, :create, :show]
   before_filter :require_admin
 
   def index
@@ -34,6 +34,12 @@ class IssueTemplatesController < ApplicationController
     @issue_template.destroy
     redirect_to issue_templates_url
   end
+
+	def show
+		respond_to do |type|  
+      type.js   { render } 
+	  end
+	end
 
 private
 
