@@ -1,1 +1,1 @@
-page.alert 'teste'
+page.replace_html :issue_description, :text => @issue_template.content

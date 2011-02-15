@@ -1,6 +1,6 @@
 class IssueTemplatesController < ApplicationController
   unloadable
-  before_filter :find_issue_template, :except => [:index, :new, :create, :show]
+  before_filter :find_issue_template, :except => [:index, :new, :create]
   before_filter :require_admin
 
   def index
@@ -36,6 +36,7 @@ class IssueTemplatesController < ApplicationController
   end
 
 	def show
+    @issue_template = IssueTemplate.find(params[:id])
 		respond_to do |type|  
       type.js   { render } 
 	  end
