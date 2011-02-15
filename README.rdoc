@@ -1,0 +1,21 @@
+=Redmine Issue Template Plugin
+
+==About
+
+Allows to manage templates of issues, and adding them to a new issue body.
+
+==Install
+
+# Follow the Redmine plugin installation steps at: www.redmine.org/wiki/redmine/Plugins 
+# Make sure the plugin is installed to +vendor/plugins/redmine-issues-template+
+# Setup the database using the migrations. +rake db:migrate_plugins RAILS_ENV=production+
+# Add a new *issue template* by clicking at *issue templates* menu under Administration Area
+
+==Authors
+
+* 'undev.ru' http://undev.ru'
+* Otávio Sampaio, otaviofcs@gmail.com
+
+
+	
+
