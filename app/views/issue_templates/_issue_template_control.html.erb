@@ -1,5 +1,5 @@
 <% html = capture do %>
-<% if @issue.new_record? %>
+<% if @issue.new_record? && IssueTemplate.count > 0 %>
 <div class='insertTemplate' style="margin-bottom: 15px; margin-left: -180px;">
 <% form_remote_tag :html => {:method => :get}, :url => { :controller => 'issue_templates', :action => 'show'} do %>
   <label style="margin-left: 0; margin-right: 5px;"><%= l(:label_issue_template_insert) %></label>
