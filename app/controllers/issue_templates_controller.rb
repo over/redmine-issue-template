@@ -36,7 +36,7 @@ class IssueTemplatesController < ApplicationController
   end
 
 	def show
-    @issue_template = IssueTemplate.find(params[:id])
+    @issue_template = IssueTemplate.find(params[:issue_template_id])
 		respond_to do |type|  
       type.js   { render } 
 	  end

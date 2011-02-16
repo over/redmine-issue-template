@@ -3,7 +3,7 @@
 <div class='insertTemplate' style="margin-bottom: 15px; margin-left: 80px;">
 <% form_remote_tag :html => {:method => :get}, :url => { :controller => 'issue_templates', :action => 'show'} do %>
   <label style="margin-left: 0; margin-right: 5px;"><%= l(:label_issue_template_insert) %></label>
-  <select id="template_selector" name="id" >
+  <select id="template_selector" name="issue_template_id" >
     <%= issue_templates_options %>
   </select>
 	<%= submit_tag l(:label_issue_template_insert_button) %>
