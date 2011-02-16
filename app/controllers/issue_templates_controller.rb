@@ -1,7 +1,7 @@
 class IssueTemplatesController < ApplicationController
   unloadable
   before_filter :find_issue_template, :except => [:index, :new, :create, :show]
-  before_filter :require_admin
+  before_filter :require_admin, :except => [:show]
 
   def index
     @issue_templates = IssueTemplate.all(:order => "created_at DESC")
