@@ -1,6 +1,7 @@
 class IssueTemplatesController < ApplicationController
-  before_filter :find_issue_template, :except => [:index, :new, :create]
-  before_filter :require_admin
+  unloadable
+  before_filter :find_issue_template, :except => [:index, :new, :create, :show]
+  before_filter :require_admin, :except => [:show]
 
   def index
     @issue_templates = IssueTemplate.all(:order => "created_at DESC")
@@ -33,6 +34,13 @@ class IssueTemplatesController < ApplicationController
     @issue_template.destroy
     redirect_to issue_templates_url
   end
+
+	def show
+    @issue_template = IssueTemplate.find(params[:issue_template_id])
+		respond_to do |type|  
+      type.js   { render } 
+	  end
+	end
 
 private
 

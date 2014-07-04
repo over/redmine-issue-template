@@ -1,18 +1,17 @@
 <% html = capture do %>
-<div class='insertTemplate' style="margin-bottom: 15px; margin-left: -180px;">
+<% if @issue.new_record? && IssueTemplate.count > 0 %>
+<div class='insertTemplate' style="margin-bottom: 15px; margin-left: 80px;">
+<% form_remote_tag :html => {:method => :get}, :url => { :controller => 'issue_templates', :action => 'show'} do %>
   <label style="margin-left: 0; margin-right: 5px;"><%= l(:label_issue_template_insert) %></label>
-  <select id="template_selector">
+  <select id="template_selector" name="issue_template_id" >
     <%= issue_templates_options %>
   </select>
-  <input type="button" value="Вставить" onclick="insertTemplate('template_selector', 'issue_description')"/>
+	<%= submit_tag l(:label_issue_template_insert_button) %>
+<% end %>
 </div>
+<% end %>
 <% end %>
 
 <% javascript_tag do %>
-  $('issue_description').insert({after: '<%= escape_javascript(html) %>'});
-  var head = $$('head')[0];
-  if (head) {
-    script = new Element('script', { type: 'text/javascript', src: '/plugin_assets/redmine_issue_template/javascripts/issue_templates.js'});
-    head.appendChild(script);
-  }
+  $('issue_description').insert({before: '<%= escape_javascript(html) %>'});
 <% end %>
